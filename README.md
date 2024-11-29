@@ -1,3 +1,28 @@
+# Temporary Fix for Windows
+
+### This is a temporary fix for the latest Windows Update which broke deej for some people.
+
+
+This patch allows deej to work with the new CH340/CH341 Serial driver version 3.9.2024.9 again.
+
+If your deej is not responding to slider movements since the latest Windows Udpate, and rolling back the CH340 driver to an older version did not fix it for you, this patch fixes the issue.
+
+Before using this patch you might want to try rolling back the CH340 Serial Driver to an older version in Windows device manager.
+
+### Download and installation
+Just as with the main deej project:
+
+- Head over to the [releases page](https://github.com/Skyfighter64/deej/releases) and download the [latest version](https://github.com/Skyfighter64/deej/releases/latest)'s executable and configuration file (`deej.exe` and `config.yaml`)
+- Place them in the same directory anywhere on your machine
+- (Optional, on Windows) Create a shortcut to `deej.exe` and copy it to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup` to have deej run on boot
+
+<pre>
+
+
+
+</pre>
+
+
 # deej
 
 deej is an **open-source hardware volume mixer** for Windows and Linux PCs. It lets you use real-life sliders (like a DJ!) to **seamlessly control the volumes of different apps** (such as your music player, the game you're playing and your voice chat session) without having to stop what you're doing.

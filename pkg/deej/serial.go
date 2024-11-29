@@ -77,7 +77,9 @@ func (sio *SerialIO) Start() error {
 	// set minimum read size according to platform (0 for windows, 1 for linux)
 	// this prevents a rare bug on windows where serial reads get congested,
 	// resulting in significant lag
-	minimumReadSize := 0
+
+	//Note by Skyfighter: This being 0 instead of 1 causes problems with the newest windows drivers v3.9 for CH340 Serial
+	minimumReadSize := 1
 	if util.Linux() {
 		minimumReadSize = 1
 	}
@@ -216,6 +218,7 @@ func (sio *SerialIO) readLine(logger *zap.SugaredLogger, reader *bufio.Reader) c
 
 			if sio.deej.Verbose() {
 				logger.Debugw("Read new line", "line", line)
+				//fmt.Println("Rx: ", line)
 			}
 
 			// deliver the line to the channel
